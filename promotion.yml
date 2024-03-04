@@ -15,15 +15,295 @@ externalDocs:
   url: http://swagger.io
 servers:
   - url: https://api04.escm.dev.kurly.com/api-contract/
+tags:
+  - name: "partner-promotion"
+    description: "파트너 참여 프로모션"
+  - name: "partner-promotion-application"
+    description: "파트너 참여 프로모션 신청서"
 paths:
-  /shared/test/{promotionId}:
+  /shared/v4/partner-promotions:
     get:
-      summary: test
-      description: test
+      summary: 신청 가능한 프로모션 리스트 검색
+      description: 파트너가 아직 신청하지 않은 프로모션 검색
+      tags: 
+        - partner-promotion
       parameters:
-        - name: promotionId
+        - name: promotionCode
+          in: query
+          description: promotionCode
+          required: false
+          schema:
+            type: string
+        - name: category
+          in: query
+          description: 권장 카테고리
+          required: false
+          schema:
+            type: string
+        - name: endDate.from
+          in: query
+          description: 프로모션 종료일 검색 from (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: endDate.to
+          in: query
+          description: 프로모션 종료일 검색 to (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: applicationEndDate.from
+          in: query
+          description: 프로모션 신청 마감일 검색 from (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: applicationEndDate.to
+          in: query
+          description: 프로모션 신청 마감일 검색 to (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: eventType
+          in: query
+          description: 프로모션 타입
+          required: false
+          schema:
+            type: string
+        - name: isApplied
+          in: query
+          description: 신청 여부 (전체 검색 null)
+          required: false
+          schema:
+            type: boolean
+        - name: limit
+          in: query
+          description: limit
+          required: false
+          schema:
+            type: number
+        - name: currentPage
+          in: query
+          description: currentPage
+          required: false
+          schema:
+            type: number
+        - name: sort
+          in: query
+          description: 정렬 기준
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              examples:
+                "success": 
+                  value: {"data": [
+                    {
+                      "partnerPromotionId": 1,
+                      "promotionCode": "ffffff",
+                      "eventType": "SPECIAL_SALE",
+                      "title": "뷰티컬리페스타-스킨케어",
+                      "categories": [
+                        ["커피", "차", "음료"],
+                        ["메인메뉴", "간편식"]
+                      ],
+                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                      "startDate": "YYYY-MM-DD HH:MM:SS",
+                      "endDate": "YYYY-MM-DD HH:MM:SS",
+                      "myAplicationCodes" : ["MMMM", "AAAA"]
+                    },
+                    {
+                      "partnerPromotionId": 2,
+                      "promotionCode": "ffffff",
+                      "eventType": "SPECIAL_SALE",
+                      "promotionName": "2222namememe 전체 카테고리",
+                      "categories": [
+                        
+                      ],
+                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                      "startDate": "YYYY-MM-DD HH:MM:SS",
+                      "endDate": "YYYY-MM-DD HH:MM:SS",
+                      "myAplicationCodes" : []
+                    }
+                  ],
+                  "pageInfo": {
+                    "limit": 50,
+                    "totalCount": 6,
+                    "page": 1
+                  }}
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotions/my-applied:
+    get:
+      summary: 로그인한 사용자의 프로모션 신청 내역 검색
+      description: 로그인한 사용자의 프로모션 신청 내역 검색
+      tags: 
+        - partner-promotion
+      parameters:
+        - name: promotionCode
+          in: query
+          description: promotionCode
+          required: false
+          schema:
+            type: string
+        - name: title
+          in: query
+          description: 프로모션명
+          required: false
+          schema:
+            type: string
+        - name: applicationCode
+          in: query
+          description: 신청서 코드
+          required: false
+          schema:
+            type: string
+        - name: goodsName
+          in: query
+          description: 상품명
+          required: false
+          schema:
+            type: string
+        - name: goodsCode
+          in: query
+          description: 상품코드
+          required: false
+          schema:
+            type: string
+        - name: contractCode
+          in: query
+          description: 합의서코드
+          required: false
+          schema:
+            type: string
+        - name: endDate.from
+          in: query
+          description: 프로모션 종료일 검색 from (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: endDate.to
+          in: query
+          description: 프로모션 종료일 검색 to (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: applicationEndDate.from
+          in: query
+          description: 프로모션 신청 마감일 검색 from (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: applicationEndDate.to
+          in: query
+          description: 프로모션 신청 마감일 검색 to (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: appliedDate.from
+          in: query
+          description: 프로모션 신청일 검색 from (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: appliedDate.to
+          in: query
+          description: 프로모션 신청일 검색 to (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: eventType
+          in: query
+          description: 프로모션 타입
+          required: false
+          schema:
+            type: string
+        - name: benefitTypes
+          in: query
+          description: 프로모션 타입 (N개)
+          required: false
+          schema:
+            type: string
+        - name: ApplicationStatuses
+          in: query
+          description: 신청서 상태 (N개)
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: limit
+          required: false
+          schema:
+            type: number
+        - name: currentPage
+          in: query
+          description: currentPage
+          required: false
+          schema:
+            type: number
+        - name: sort
+          in: query
+          description: 정렬 기준
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              examples:
+                "success": 
+                  value: {"data": [
+                    {
+                      "promotionApplicationId": 1,
+                      "applicationStatus": "PROPOSAL_COMPLETED",
+                      "applicationCode": "XXXX",
+                      "promotionCode": "PPPPP",
+                      "title": "9월카페기획전",
+                      "eventType": "SPECIAL_SALE",
+                      "benefitType": "COUPON",
+                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                      "startDate": "YYYY-MM-DD HH:MM:SS",
+                      "endDate": "YYYY-MM-DD HH:MM:SS",
+                      "appliedDate": "YYYY-MM-DD HH:MM:SS"
+                    },
+                    {
+                      "promotionApplicationId": 2,
+                      "applicationStatus": "AGREED",
+                      "applicationCode": "VJIBITNBT",
+                      "promotionCode": "3333OOOOOOOOOOO",
+                      "title": "9월카페기획전",
+                      "eventType": "SPECIAL_SALE",
+                      "benefitType": "INVENTORY_PRICE_DISCOUNT",
+                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                      "startDate": "YYYY-MM-DD HH:MM:SS",
+                      "endDate": "YYYY-MM-DD HH:MM:SS",
+                      "appliedDate": "YYYY-MM-DD HH:MM:SS"
+                    }
+                  ],
+                  "pageInfo": {
+                    "limit": 50,
+                    "totalCount": 6,
+                    "page": 1
+                  }}
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/{promotionCode}:
+    get:
+      summary: 프로모션 상세 정보 조회 (아이템 상세 제외)
+      description: 프로모션 상세 정보 조회
+      tags: 
+        - partner-promotion
+      parameters:
+        - name: promotionCode
           in: path
-          description: id
+          description: promotionCode
           required: true
           schema:
             type: string
@@ -33,15 +313,228 @@ paths:
           content:
             application/json:
               examples:
-                "유효한 요청": 
-                  value: {"data": {"test":1}}
+                "success": 
+                  value: {"data": {
+                    "partnerPromotionId": 1,
+                    "promotionCode": "ffffff",
+                    "eventType": "SPECIAL_SALE",
+                    "title": "뷰티컬리페스타-스킨케어",
+                    "description": "",
+                    "categories": [
+                      ["커피", "차", "음료"],
+                      ["메인메뉴", "간편식"]
+                    ],
+                    "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                    "startDate": "YYYY-MM-DD HH:MM:SS",
+                    "endDate": "YYYY-MM-DD HH:MM:SS",
+                    "benefitTypes": ["PRICE_DISCOUNT", "GIVEAWAY", "INVENTORY_PRICE_DISCOUNT", "COUPON"],
+                    "itemCounts": [
+                      {
+                        "benefitType": "PRICE_DISCOUNT",
+                        "count": 50
+                      },
+                      {
+                        "benefitType": "GIVEAWAY",
+                        "count": 98
+                      },
+                      {
+                        "benefitType": "INVENTORY_PRICE_DISCOUNT",
+                        "count": 2
+                      },
+                      {
+                        "benefitType": "COUPON",
+                        "count": 1
+                      }
+                    ]
+                  }}    
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/application/{applicationCode}/agree:
+    post:
+      summary: 신청서 합의 날인
+      description: 신청서 합의 날인
+      tags: 
+        - partner-promotion-application
+      parameters:
+        - name: applicationCode
+          in: path
+          description: applicationCode
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                approvalSealFile:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: 합의 날인 성공
         '400':
-          description: failed
+          description: 합의 날인 실패
           content:
             application/json:
               examples:
-                "찾을수 없는 요청": 
-                  value: {"errorCode": "NOT_FOUND"}
+                "승인되지 않은 잔여 아이템": 
+                  value: {"error": "NOT_APPROVED_ITEM",
+                  "data": [
+                    {
+                      "{{benefit-type}}-item-id": 12,
+                      "goodsCode": "MK0000000"
+                    },
+                    {
+                      "{{benefit-type}}-item-id": 91,
+                      "goodsCode": "MK0000012"
+                    }
+                  ]}
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/application/{applicationCode}/contract/file:
+    get:
+      summary: 신청서의 합의서 파일 다운로드
+      description: 신청서의 합의서 파일 다운로드
+      tags: 
+        - partner-promotion-application
+      parameters:
+        - name: applicationCode
+          in: path
+          description: applicationCode
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: pdf 파일 다운로드 성공
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+      security:
+        - bearerAuthJWT: []
+    post:
+      summary: 신청서의 합의서 파일 업로드(생성)
+      description: 신청서의 합의서 파일 업로드(생성)
+      tags: 
+        - partner-promotion-application
+      parameters:
+        - name: applicationCode
+          in: path
+          description: applicationCode
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                contractFile:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: 합의서 파일 업로드(생성) 성공
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/{promotionCode}/goods/available-apply:
+    get:
+      summary: 해당 프로모션에 지원가능한 상품 조회
+      description: 해당 공급사의 상품 중 -> 해당 프로모션에 지원 가능한 상품 조회
+      tags: 
+        - goods..?
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+        - name: goodsCode
+          in: query
+          description: 상품코드
+          required: false
+          schema:
+            type: string
+        - name: goodsName
+          in: query
+          description: 상품명
+          required: false
+          schema:
+            type: string
+        - name: mainCategoryCode
+          in: query
+          description: 대카테고리
+          required: false
+          schema:
+            type: string
+        - name: middleCategoryCode
+          in: query
+          description: 대카테고리
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: limit
+          required: false
+          schema:
+            type: number
+        - name: currentPage
+          in: query
+          description: currentPage
+          required: false
+          schema:
+            type: number
+        - name: sort
+          in: query
+          description: 정렬 기준
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              examples:
+                "success": 
+                  value: {"data": [
+                    {
+                      "goodsCode": "MK0000000000",
+                      "goodsName": "케탸 아메리카노",
+                      "mainCategoryName": "커피/차",
+                      "middleCategoryName": "커피/차",
+                      "thirdCategoryName": "커피/차",
+                      "lastReceivingDate": "YYYY-MM-DD HH:MM:SS",
+                      "supplyPrice": 25311,
+                      "salesPrice": 13111,
+                      "grossProfitMarginRatio": 50.15,
+                    },
+                    {
+                      "goodsCode": "MK0000002300",
+                      "goodsName": "콜드브루 커피",
+                      "mainCategoryName": "커피/차",
+                      "middleCategoryName": "커피/차",
+                      "thirdCategoryName": "커피용품",
+                      "lastReceivingDate": "YYYY-MM-DD HH:MM:SS",
+                      "supplyPrice": 26533,
+                      "salesPrice": 17784,
+                      "grossProfitMarginRatio": 50.15,
+                    }
+                  ],
+                  "pageInfo": {
+                    "limit": 50,
+                    "totalCount": 6,
+                    "page": 1
+                  }}  
       security:
         - bearerAuthJWT: []
 components:
