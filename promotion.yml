@@ -20,7 +20,180 @@ tags:
     description: "파트너 참여 프로모션"
   - name: "partner-promotion-application"
     description: "파트너 참여 프로모션 신청서"
+  - name: "partner-promotion-application-price-discount"
+    description: "판매가 할인 프로모션 신청서"
 paths:
+  /shared/v4/partner-promotion/application/price-discount/my:
+    get:
+      summary: 공급사가 신청한 판매가할인 프로모션 신청서 상세 조회
+      description: 공급사가 신청한 판매가할인 프로모션 신청서 상세 조회
+      tags: 
+        - partner-promotion-application-price-discount
+      responses:
+        '200':
+          description: 모든 구분이 다 있는 경우
+          content:
+            application/json:
+              examples:
+                "success": 
+                  value: {"data": {
+                    "partnerPromotionApplicationId": 1,
+                    "applicationCode": "DDDDD",
+                    "isTemporary": false,
+                    "status": "READY_TO_AGREE",
+                    "isGeneratedFile": false,
+                    "isConfirmed": false,
+                    "items": [
+                      {
+                        "id": 1,
+                        "goodsCode": "MK00000000",
+                        "goodsName": "케냐 아메리카노",
+                        "discountRate": 10,
+                        "discountPrice": 2300,
+                        "expectedSalesQuantity": 1000,
+                      	"supplierShareRate": 50,
+                      	"expectedAdvertisePrice": 800283,
+                      	"basePrice": 23000,
+                        "originalGrossMerchandiseValue": 1000000,
+                        "grossProfitMargin": 22,
+                        "expectedAdvertiseRate": 24,
+                        "advertiseCostPerUnit": 4500,
+                        "maximumQuantity": 1000,
+                        "maximumExpectedDiscountPrice": 10000,
+                    	  "discountedPrice": 20700,
+                    	  "status": "IN_PROGRESS",
+                    	  "startDate": "YYYY-MM-DD HH:MM:SS",
+                    	  "endDate": "YYYY-MM-DD HH:MM:SS",
+                      },
+                      {
+                        "id": 2,
+                        "goodsCode": "MK00000000",
+                        "goodsName": "다른커피",
+                        "discountRate": 10,
+                        "discountPrice": 2300,
+                        "expectedSalesQuantity": 1000,
+                      	"supplierShareRate": 50,
+                      	"expectedAdvertisePrice": 800283,
+                      	"basePrice": 23000,
+                        "originalGrossMerchandiseValue": 1000000,
+                        "grossProfitMargin": 22,
+                        "expectedAdvertiseRate": 24,
+                        "advertiseCostPerUnit": 4500,
+                        "maximumQuantity": 1000,
+                        "maximumExpectedDiscountPrice": 10000,
+                    	  "discountedPrice": 20700,
+                    	  "status": "PROPOSAL",
+                    	  "startDate": "YYYY-MM-DD HH:MM:SS",
+                    	  "endDate": "YYYY-MM-DD HH:MM:SS",
+                      }
+                    ]
+                  }}
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/application/price-discount/temporary:
+    post:
+      summary: 판매가할인 프로모션 신청서 임시 저장
+      description: 판매가할인 프로모션 신청서 임시 저장
+      tags: 
+        - partner-promotion-application-price-discount
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "id": null,
+                    "goodsCode": "MK00000000",
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "id": 45,
+                    "goodsCode": "MK00000011",
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/application/price-discount:
+    post:
+      summary: 판매가할인 프로모션 신청서 최종 제출
+      description: 판매가할인 프로모션 신청서 최종 제출
+      tags: 
+        - partner-promotion-application-price-discount
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "id": null,
+                    "goodsCode": "MK00000000",
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "id": 45,
+                    "goodsCode": "MK00000011",
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+    put:
+      summary: 판매가할인 프로모션 신청서 수정 제출
+      description: 판매가할인 프로모션 신청서 수정 제출
+      tags: 
+        - partner-promotion-application-price-discount
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "id": null,
+                    "goodsCode": "MK00000000",
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "id": 45,
+                    "goodsCode": "MK00000011",
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
   /shared/v4/partner-promotions:
     get:
       summary: 신청 가능한 프로모션 리스트 검색
@@ -114,7 +287,7 @@ paths:
                       "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
                       "startDate": "YYYY-MM-DD HH:MM:SS",
                       "endDate": "YYYY-MM-DD HH:MM:SS",
-                      "myAplicationCodes" : ["MMMM", "AAAA"]
+                      "myApplicationCodes" : ["MMMM", "AAAA"]
                     },
                     {
                       "partnerPromotionId": 2,
@@ -127,7 +300,7 @@ paths:
                       "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
                       "startDate": "YYYY-MM-DD HH:MM:SS",
                       "endDate": "YYYY-MM-DD HH:MM:SS",
-                      "myAplicationCodes" : []
+                      "myApplicationCodes" : []
                     }
                   ],
                   "pageInfo": {
@@ -171,12 +344,6 @@ paths:
         - name: goodsCode
           in: query
           description: 상품코드
-          required: false
-          schema:
-            type: string
-        - name: contractCode
-          in: query
-          description: 합의서코드
           required: false
           schema:
             type: string
@@ -327,23 +494,22 @@ paths:
                     "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
                     "startDate": "YYYY-MM-DD HH:MM:SS",
                     "endDate": "YYYY-MM-DD HH:MM:SS",
-                    "benefitTypes": ["PRICE_DISCOUNT", "GIVEAWAY", "INVENTORY_PRICE_DISCOUNT", "COUPON"],
-                    "itemCounts": [
+                    "benefitTypes": ["INVENTORY_PRICE_DISCOUNT", "PRICE_DISCOUNT", "COUPON", "GIVEAWAY"],
+                    "myApplications" : [
                       {
                         "benefitType": "PRICE_DISCOUNT",
-                        "count": 50
+                        "applicationCode": "CCCC",
+                        "count": 12,
                       },
                       {
                         "benefitType": "GIVEAWAY",
-                        "count": 98
+                        "applicationCode": "AAAA",
+                        "count": 21,
                       },
                       {
                         "benefitType": "INVENTORY_PRICE_DISCOUNT",
-                        "count": 2
-                      },
-                      {
-                        "benefitType": "COUPON",
-                        "count": 1
+                        "applicationCode": "BBBBB",
+                        "count": 54,
                       }
                     ]
                   }}    
