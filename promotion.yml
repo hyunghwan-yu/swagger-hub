@@ -22,7 +22,441 @@ tags:
     description: "파트너 참여 프로모션 신청서"
   - name: "partner-promotion-application-price-discount"
     description: "판매가 할인 프로모션 신청서"
+  - name: "partner-promotion-application-giveaway"
+    description: "증정 프로모션 신청서"
+  - name: "partner-promotion-application-inventory-price-discount"
+    description: "입고가 할인 프로모션 신청서"
+  - name: "partner-promotion-application-coupon"
+    description: "쿠폰 할인 프로모션 신청서"
 paths:
+  /shared/v4/partner-promotion/application/giveaway/my:
+    get:
+      summary: 공급사가 신청한 판매가할인 프로모션 신청서 상세 조회
+      description: 공급사가 신청한 판매가할인 프로모션 신청서 상세 조회
+      tags: 
+        - partner-promotion-application-giveaway
+      responses:
+        '200':
+          description: 모든 구분이 다 있는 경우
+          content:
+            application/json:
+              examples:
+                "success": 
+                  value: {"data": {
+                    "promotionApplicationId": 1,
+                    "applicationCode": "DDDDD",
+                    "isTemporary": false,
+                    "status": "READY_TO_AGREE",
+                    "isGeneratedFile": false,
+                    "isConfirmed": false,
+                    "goods": [
+                      {
+                        "promotionGiveawayConditionGoodsId": 1,
+                        "goodsCode": "MK00000000",
+                        "goodsName": "케냐 아메리카노",
+                        "basePrice": 1000,
+                        "supplyprice": 100,
+                        "expectedSalesQuantity": 1000,
+                        "status": "PROPOSAL",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                      }
+                    ],
+                    "giveawayGoods": [
+                      {
+                        "promotionGiveawayGoodsId": 1,
+                        "supplyprice": 100,
+                        "maximumQuantity": 100,
+                        "maximumExpectedDiscountPrice": 100,
+                        "discountRate": 10,
+                        "discountPrice": 2300,
+                        "expectedSalesQuantity": 1000,
+                        "conditionType": "PRODUCT",
+                        "thresholdType": "PRICE",
+                        "provisionType": "EACH",
+                        "conditionThreshold": 30000
+                      }
+                    ]
+                  }}
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/{promotionCode}/application/giveaway/temporary:
+    post:
+      summary: 판매가할인 프로모션 신청서 임시 저장
+      description: 판매가할인 프로모션 신청서 임시 저장
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-giveaway
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: {
+                  "goods": [
+                    {
+                      "promotionGiveawayConditionGoodsId": 1,
+                      "goodsCode": "MK00000000",
+                      "goodsName": "케냐 아메리카노",
+                      "basePrice": 1000,
+                      "supplyprice": 100,
+                      "expectedSalesQuantity": 1000,
+                      "status": "PROPOSAL",
+                      "startDate": "YYYY-MM-DD HH:MM:SS",
+                      "endDate": "YYYY-MM-DD HH:MM:SS",
+                    }
+                  ],
+                  "giveawayGoods": [
+                    {
+                      "promotionGiveawayGoodsId": 1,
+                      "supplyprice": 100,
+                      "maximumQuantity": 100,
+                      "maximumExpectedDiscountPrice": 100,
+                      "discountRate": 10,
+                      "discountPrice": 2300,
+                      "expectedSalesQuantity": 1000,
+                      "conditionType": "PRODUCT",
+                      "thresholdType": "PRICE",
+                      "provisionType": "EACH",
+                      "conditionThreshold": 30000
+                    }
+                  ]
+                }
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/{promotionCode}/application/giveaway:
+    post:
+      summary: 판매가할인 프로모션 신청서 최종 제출
+      description: 판매가할인 프로모션 신청서 최종 제출
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-giveaway
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: {
+                  "goods": [
+                    {
+                      "promotionGiveawayConditionGoodsId": 1,
+                      "goodsCode": "MK00000000",
+                      "goodsName": "케냐 아메리카노",
+                      "basePrice": 1000,
+                      "supplyprice": 100,
+                      "expectedSalesQuantity": 1000,
+                      "status": "PROPOSAL",
+                      "startDate": "YYYY-MM-DD HH:MM:SS",
+                      "endDate": "YYYY-MM-DD HH:MM:SS",
+                    }
+                  ],
+                  "giveawayGoods": [
+                    {
+                      "promotionGiveawayGoodsId": 1,
+                      "supplyprice": 100,
+                      "maximumQuantity": 100,
+                      "maximumExpectedDiscountPrice": 100,
+                      "discountRate": 10,
+                      "discountPrice": 2300,
+                      "expectedSalesQuantity": 1000,
+                      "conditionType": "PRODUCT",
+                      "thresholdType": "PRICE",
+                      "provisionType": "EACH",
+                      "conditionThreshold": 30000
+                    }
+                  ]
+                }
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+    put:
+      summary: 판매가할인 프로모션 신청서 수정 제출
+      description: 판매가할인 프로모션 신청서 수정 제출
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-giveaway
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: {
+                  "goods": [
+                    {
+                      "promotionGiveawayConditionGoodsId": 1,
+                      "goodsCode": "MK00000000",
+                      "goodsName": "케냐 아메리카노",
+                      "basePrice": 1000,
+                      "supplyprice": 100,
+                      "expectedSalesQuantity": 1000,
+                      "status": "PROPOSAL",
+                      "startDate": "YYYY-MM-DD HH:MM:SS",
+                      "endDate": "YYYY-MM-DD HH:MM:SS",
+                    }
+                  ],
+                  "giveawayGoods": [
+                    {
+                      "promotionGiveawayGoodsId": 1,
+                      "supplyprice": 100,
+                      "maximumQuantity": 100,
+                      "maximumExpectedDiscountPrice": 100,
+                      "discountRate": 10,
+                      "discountPrice": 2300,
+                      "expectedSalesQuantity": 1000,
+                      "conditionType": "PRODUCT",
+                      "thresholdType": "PRICE",
+                      "provisionType": "EACH",
+                      "conditionThreshold": 30000
+                    }
+                  ]
+                }
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/application/coupon/my:
+    get:
+      summary: 공급사가 신청한 쿠폰 프로모션 신청서 상세 조회
+      description: 공급사가 신청한 쿠폰 프로모션 신청서 상세 조회
+      tags: 
+        - partner-promotion-application-coupon
+      responses:
+        '200':
+          description: 모든 구분이 다 있는 경우
+          content:
+            application/json:
+              examples:
+                "success": 
+                  value: {"data": {
+                    "promotionApplicationId": 1,
+                    "applicationCode": "DDDDD",
+                    "isTemporary": false,
+                    "status": "READY_TO_AGREE",
+                    "isGeneratedFile": false,
+                    "isConfirmed": false,
+                    "goods": [
+                      {
+                        "promotionCouponGoodsId": 1,
+                        "goodsCode": "MK00000000",
+                        "goodsName": "케냐 아메리카노",
+                        "minimumBuyPrice": 10000,
+                        "minimumBuyAmount": 1,
+                        "maximumDiscountPrice": 5000,
+                        "discountRate": 10,
+                        "discountPrice": 2300,
+                        "expectedSalesQuantity": 1000,
+                        "supplierShareRate": 50,
+                        "expectedAdvertisePrice": 800283,
+                        "basePrice": 23000,
+                        "originalGrossMerchandiseValue": 1000000,
+                        "grossProfitMargin": 22,
+                        "expectedAdvertiseRate": 24,
+                        "advertiseCostPerUnit": 4500,
+                        "maximumQuantity": 1000,
+                        "maximumExpectedDiscountPrice": 10000,
+                        "discountedPrice": 20700,
+                        "status": "IN_PROGRESS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                      },
+                      {
+                        "promotionCouponGoodsId": 2,
+                        "goodsCode": "MK00000011",
+                        "goodsName": "텀블러",
+                        "minimumBuyPrice": 10000,
+                        "minimumBuyAmount": 1,
+                        "maximumDiscountPrice": 5000,
+                        "discountRate": 10,
+                        "discountPrice": 2300,
+                        "expectedSalesQuantity": 1000,
+                        "supplierShareRate": 50,
+                        "expectedAdvertisePrice": 800283,
+                        "basePrice": 23000,
+                        "originalGrossMerchandiseValue": 1000000,
+                        "grossProfitMargin": 22,
+                        "expectedAdvertiseRate": 24,
+                        "advertiseCostPerUnit": 4500,
+                        "maximumQuantity": 1000,
+                        "maximumExpectedDiscountPrice": 10000,
+                        "discountedPrice": 20700,
+                        "status": "IN_PROGRESS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                      }
+                    ]
+                  }}
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/{promotionCode}/application/coupon/temporary:
+    post:
+      summary: 쿠폰 프로모션 신청서 임시 저장
+      description: 쿠폰 프로모션 신청서 임시 저장
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-coupon
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "promotionCouponGoodsId": null,
+                    "goodsCode": "MK00000000",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "promotionCouponGoodsId": 45,
+                    "goodsCode": "MK00000011",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/{promotionCode}/application/coupon:
+    post:
+      summary: 쿠폰 프로모션 신청서 최종 제출
+      description: 쿠폰 프로모션 신청서 최종 제출
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-coupon
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "promotionCouponGoodsId": null,
+                    "goodsCode": "MK00000000",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "promotionCouponGoodsId": 45,
+                    "goodsCode": "MK00000011",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+    put:
+      summary: 쿠폰 프로모션 신청서 수정 제출
+      description: 쿠폰 프로모션 신청서 수정 제출
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-coupon
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "promotionCouponGoodsId": null,
+                    "goodsCode": "MK00000000",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "promotionCouponGoodsId": 45,
+                    "goodsCode": "MK00000011",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
   /shared/v4/partner-promotion/application/price-discount/my:
     get:
       summary: 공급사가 신청한 판매가할인 프로모션 신청서 상세 조회
@@ -37,63 +471,70 @@ paths:
               examples:
                 "success": 
                   value: {"data": {
-                    "partnerPromotionApplicationId": 1,
+                    "promotionApplicationId": 1,
                     "applicationCode": "DDDDD",
                     "isTemporary": false,
                     "status": "READY_TO_AGREE",
                     "isGeneratedFile": false,
                     "isConfirmed": false,
-                    "items": [
+                    "goods": [
                       {
-                        "id": 1,
+                        "promotionPriceDiscountGoodsId": 1,
                         "goodsCode": "MK00000000",
                         "goodsName": "케냐 아메리카노",
                         "discountRate": 10,
                         "discountPrice": 2300,
                         "expectedSalesQuantity": 1000,
-                      	"supplierShareRate": 50,
-                      	"expectedAdvertisePrice": 800283,
-                      	"basePrice": 23000,
+                        "supplierShareRate": 50,
+                        "expectedAdvertisePrice": 800283,
+                        "basePrice": 23000,
                         "originalGrossMerchandiseValue": 1000000,
                         "grossProfitMargin": 22,
                         "expectedAdvertiseRate": 24,
                         "advertiseCostPerUnit": 4500,
                         "maximumQuantity": 1000,
                         "maximumExpectedDiscountPrice": 10000,
-                    	  "discountedPrice": 20700,
-                    	  "status": "IN_PROGRESS",
-                    	  "startDate": "YYYY-MM-DD HH:MM:SS",
-                    	  "endDate": "YYYY-MM-DD HH:MM:SS",
+                        "discountedPrice": 20700,
+                        "status": "IN_PROGRESS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
                       },
                       {
-                        "id": 2,
+                        "promotionPriceDiscountGoodsId": 2,
                         "goodsCode": "MK00000000",
                         "goodsName": "다른커피",
                         "discountRate": 10,
                         "discountPrice": 2300,
                         "expectedSalesQuantity": 1000,
-                      	"supplierShareRate": 50,
-                      	"expectedAdvertisePrice": 800283,
-                      	"basePrice": 23000,
+                        "supplierShareRate": 50,
+                        "expectedAdvertisePrice": 800283,
+                        "basePrice": 23000,
                         "originalGrossMerchandiseValue": 1000000,
                         "grossProfitMargin": 22,
                         "expectedAdvertiseRate": 24,
                         "advertiseCostPerUnit": 4500,
                         "maximumQuantity": 1000,
                         "maximumExpectedDiscountPrice": 10000,
-                    	  "discountedPrice": 20700,
-                    	  "status": "PROPOSAL",
-                    	  "startDate": "YYYY-MM-DD HH:MM:SS",
-                    	  "endDate": "YYYY-MM-DD HH:MM:SS",
+                        "discountedPrice": 20700,
+                        "status": "PROPOSAL",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
                       }
                     ]
                   }}
       security:
         - bearerAuthJWT: []
-  /shared/v4/partner-promotion/application/price-discount/temporary:
+  /shared/v4/partner-promotion/{promotionCode}/application/price-discount/temporary:
     post:
       summary: 판매가할인 프로모션 신청서 임시 저장
       description: 판매가할인 프로모션 신청서 임시 저장
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
       tags: 
         - partner-promotion-application-price-discount
       requestBody:
@@ -104,7 +545,7 @@ paths:
               success:
                 value: [
                   {
-                    "id": null,
+                    "promotionPriceDiscountGoodsId": null,
                     "goodsCode": "MK00000000",
                     "discoutPrice": 1234,
                     "discountRate": 10,
@@ -112,7 +553,7 @@ paths:
                     "maximumQuantity": 1000
                   },
                   {
-                    "id": 45,
+                    "promotionPriceDiscountGoodsId": 45,
                     "goodsCode": "MK00000011",
                     "discoutPrice": 42423,
                     "discountRate": 15,
@@ -125,10 +566,17 @@ paths:
           description: 임시 저장 성공
       security:
         - bearerAuthJWT: []
-  /shared/v4/partner-promotion/application/price-discount:
+  /shared/v4/partner-promotion/{promotionCode}/application/price-discount:
     post:
       summary: 판매가할인 프로모션 신청서 최종 제출
       description: 판매가할인 프로모션 신청서 최종 제출
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
       tags: 
         - partner-promotion-application-price-discount
       requestBody:
@@ -139,7 +587,7 @@ paths:
               success:
                 value: [
                   {
-                    "id": null,
+                    "promotionPriceDiscountGoodsId": null,
                     "goodsCode": "MK00000000",
                     "discoutPrice": 1234,
                     "discountRate": 10,
@@ -147,7 +595,7 @@ paths:
                     "maximumQuantity": 1000
                   },
                   {
-                    "id": 45,
+                    "promotionPriceDiscountGoodsId": 45,
                     "goodsCode": "MK00000011",
                     "discoutPrice": 42423,
                     "discountRate": 15,
@@ -163,6 +611,13 @@ paths:
     put:
       summary: 판매가할인 프로모션 신청서 수정 제출
       description: 판매가할인 프로모션 신청서 수정 제출
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
       tags: 
         - partner-promotion-application-price-discount
       requestBody:
@@ -173,7 +628,7 @@ paths:
               success:
                 value: [
                   {
-                    "id": null,
+                    "promotionPriceDiscountGoodsId": null,
                     "goodsCode": "MK00000000",
                     "discoutPrice": 1234,
                     "discountRate": 10,
@@ -181,8 +636,224 @@ paths:
                     "maximumQuantity": 1000
                   },
                   {
-                    "id": 45,
+                    "promotionPriceDiscountGoodsId": 45,
                     "goodsCode": "MK00000011",
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/application/inventory-price-discount/my:
+    get:
+      summary: 공급사가 신청한 쿠폰 프로모션 신청서 상세 조회
+      description: 공급사가 신청한 쿠폰 프로모션 신청서 상세 조회
+      tags: 
+        - partner-promotion-application-inventory-price-discount
+      responses:
+        '200':
+          description: 모든 구분이 다 있는 경우
+          content:
+            application/json:
+              examples:
+                "success": 
+                  value: {"data": {
+                    "promotionApplicationId": 1,
+                    "applicationCode": "DDDDD",
+                    "isTemporary": false,
+                    "status": "READY_TO_AGREE",
+                    "isGeneratedFile": false,
+                    "isConfirmed": false,
+                    "goods": [
+                      {
+                        "promotionCouponGoodsId": 1,
+                        "goodsCode": "MK00000000",
+                        "goodsName": "케냐 아메리카노",
+                        "minimumBuyPrice": 10000,
+                        "minimumBuyAmount": 1,
+                        "maximumDiscountPrice": 5000,
+                        "discountRate": 10,
+                        "discountPrice": 2300,
+                        "expectedSalesQuantity": 1000,
+                        "supplierShareRate": 50,
+                        "expectedAdvertisePrice": 800283,
+                        "basePrice": 23000,
+                        "originalGrossMerchandiseValue": 1000000,
+                        "grossProfitMargin": 22,
+                        "expectedAdvertiseRate": 24,
+                        "advertiseCostPerUnit": 4500,
+                        "maximumQuantity": 1000,
+                        "maximumExpectedDiscountPrice": 10000,
+                        "discountedPrice": 20700,
+                        "status": "IN_PROGRESS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                      },
+                      {
+                        "promotionCouponGoodsId": 2,
+                        "goodsCode": "MK00000011",
+                        "goodsName": "텀블러",
+                        "minimumBuyPrice": 10000,
+                        "minimumBuyAmount": 1,
+                        "maximumDiscountPrice": 5000,
+                        "discountRate": 10,
+                        "discountPrice": 2300,
+                        "expectedSalesQuantity": 1000,
+                        "supplierShareRate": 50,
+                        "expectedAdvertisePrice": 800283,
+                        "basePrice": 23000,
+                        "originalGrossMerchandiseValue": 1000000,
+                        "grossProfitMargin": 22,
+                        "expectedAdvertiseRate": 24,
+                        "advertiseCostPerUnit": 4500,
+                        "maximumQuantity": 1000,
+                        "maximumExpectedDiscountPrice": 10000,
+                        "discountedPrice": 20700,
+                        "status": "IN_PROGRESS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                      }
+                    ]
+                  }}
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/{promotionCode}/application/inventory-price-discount/temporary:
+    post:
+      summary: 쿠폰 프로모션 신청서 임시 저장
+      description: 쿠폰 프로모션 신청서 임시 저장
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-inventory-price-discount
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "promotionCouponGoodsId": null,
+                    "goodsCode": "MK00000000",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "promotionCouponGoodsId": 45,
+                    "goodsCode": "MK00000011",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+  /shared/v4/partner-promotion/{promotionCode}/application/inventory-price-discount:
+    post:
+      summary: 쿠폰 프로모션 신청서 최종 제출
+      description: 쿠폰 프로모션 신청서 최종 제출
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-inventory-price-discount
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "promotionCouponGoodsId": null,
+                    "goodsCode": "MK00000000",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "promotionCouponGoodsId": 45,
+                    "goodsCode": "MK00000011",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 42423,
+                    "discountRate": 15,
+                    "supplierShareRate": 23,
+                    "maximumQuantity": 323541
+                  },
+                ]
+      responses:
+        '200':
+          description: 임시 저장 성공
+      security:
+        - bearerAuthJWT: []
+    put:
+      summary: 쿠폰 프로모션 신청서 수정 제출
+      description: 쿠폰 프로모션 신청서 수정 제출
+      parameters:
+        - name: promotionCode
+          in: path
+          description: promotionCode
+          required: true
+          schema:
+            type: string
+      tags: 
+        - partner-promotion-application-inventory-price-discount
+      requestBody:
+        description: id가 없으면 생성 / id가 있으면 수정
+        content:
+          application/json;charset=UTF-8:
+            examples:
+              success:
+                value: [
+                  {
+                    "promotionCouponGoodsId": null,
+                    "goodsCode": "MK00000000",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
+                    "discoutPrice": 1234,
+                    "discountRate": 10,
+                    "supplierShareRate": 50,
+                    "maximumQuantity": 1000
+                  },
+                  {
+                    "promotionCouponGoodsId": 45,
+                    "goodsCode": "MK00000011",
+                    "minimumBuyPrice": 10000,
+                    "minimumBuyAmount": 1,
+                    "maximumDiscountPrice": 5000,
                     "discoutPrice": 42423,
                     "discountRate": 15,
                     "supplierShareRate": 23,
@@ -681,7 +1352,7 @@ paths:
                       "thirdCategoryName": "커피/차",
                       "lastReceivingDate": "YYYY-MM-DD HH:MM:SS",
                       "supplyPrice": 25311,
-                      "salesPrice": 13111,
+                      "basePrice": 13111,
                       "grossProfitMarginRatio": 50.15,
                     },
                     {
@@ -692,7 +1363,7 @@ paths:
                       "thirdCategoryName": "커피용품",
                       "lastReceivingDate": "YYYY-MM-DD HH:MM:SS",
                       "supplyPrice": 26533,
-                      "salesPrice": 17784,
+                      "basePrice": 17784,
                       "grossProfitMarginRatio": 50.15,
                     }
                   ],
