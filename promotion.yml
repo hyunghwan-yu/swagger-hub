@@ -868,9 +868,15 @@ paths:
       tags: 
         - partner-promotion
       parameters:
+        - name: title
+          in: query
+          description: 프로모션명
+          required: false
+          schema:
+            type: string
         - name: promotionCode
           in: query
-          description: promotionCode
+          description: 프로모션 코드
           required: false
           schema:
             type: string
@@ -880,6 +886,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: startDate.from
+          in: query
+          description: 프로모션 시작일 검색 from (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string
+        - name: startDate.to
+          in: query
+          description: 프로모션 시작일 검색 to (yyyy-mm-dd)
+          required: false
+          schema:
+            type: string    
         - name: endDate.from
           in: query
           description: 프로모션 종료일 검색 from (yyyy-mm-dd)
