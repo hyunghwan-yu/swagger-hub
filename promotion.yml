@@ -940,15 +940,9 @@ paths:
           required: false
           schema:
             type: number
-        - name: currentPage
+        - name: page
           in: query
-          description: currentPage
-          required: false
-          schema:
-            type: number
-        - name: sort
-          in: query
-          description: 정렬 기준
+          description: page
           required: false
           schema:
             type: number
@@ -966,8 +960,8 @@ paths:
                       "eventType": "SPECIAL_SALE",
                       "title": "뷰티컬리페스타-스킨케어",
                       "categories": [
-                        ["커피", "차", "음료"],
-                        ["메인메뉴", "간편식"]
+                        "커피/차/음료",
+                        "메인메뉴/간편식"
                       ],
                       "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
                       "startDate": "YYYY-MM-DD HH:MM:SS",
