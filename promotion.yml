@@ -1167,8 +1167,8 @@ paths:
                     "title": "뷰티컬리페스타-스킨케어",
                     "description": "",
                     "categories": [
-                      ["커피", "차", "음료"],
-                      ["메인메뉴", "간편식"]
+                      "커피/차/음료",
+                      "메인메뉴/간편식"
                     ],
                     "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
                     "startDate": "YYYY-MM-DD HH:MM:SS",
