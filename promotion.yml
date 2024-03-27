@@ -93,7 +93,7 @@ paths:
             type: string
       tags: 
         - partner-promotion-application-giveaway
-      requestBody:프로모션 상세 조회 endpoint 추가
+      requestBody:
         description: id가 없으면 생성 / id가 있으면 수정
         content:
           application/json;charset=UTF-8:
