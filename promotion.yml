@@ -93,7 +93,7 @@ paths:
             type: string
       tags: 
         - partner-promotion-application-giveaway
-      requestBody:
+      requestBody:프로모션 상세 조회 endpoint 추가
         description: id가 없으면 생성 / id가 있으면 수정
         content:
           application/json;charset=UTF-8:
@@ -1161,7 +1161,6 @@ paths:
               examples:
                 "success": 
                   value: {"data": {
-                    "partnerPromotionId": 1,
                     "promotionCode": "ffffff",
                     "eventType": "SPECIAL_SALE",
                     "title": "뷰티컬리페스타-스킨케어",
