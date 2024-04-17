@@ -1301,12 +1301,18 @@ paths:
           required: true
           schema:
             type: string
-        - name: masterCode
+        - name: masterCodes
           in: query
-          description: 상품코드
+          description: 마스터코드 리스트
           required: false
           schema:
             type: string
+        - name: alternativeCodes
+          in: query
+          description: 대체코드(88코드) 리스트
+          required: false
+          schema:
+            type: string    
         - name: goodsName
           in: query
           description: 상품명
@@ -1315,13 +1321,13 @@ paths:
             type: string
         - name: mainCategoryCode
           in: query
-          description: 대카테고리
+          description: 대 카테고리 코드
           required: false
           schema:
             type: string
         - name: middleCategoryCode
           in: query
-          description: 대카테고리
+          description: 중 카테고리 코드
           required: false
           schema:
             type: string
@@ -1331,15 +1337,9 @@ paths:
           required: false
           schema:
             type: number
-        - name: currentPage
+        - name: page
           in: query
-          description: currentPage
-          required: false
-          schema:
-            type: number
-        - name: sort
-          in: query
-          description: 정렬 기준
+          description: page
           required: false
           schema:
             type: number
