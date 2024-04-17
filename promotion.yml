@@ -1352,31 +1352,35 @@ paths:
                 "success": 
                   value: {"data": [
                     {
+                      "goodsId": 12345,
                       "masterCode": "MK0000000000",
                       "goodsName": "케탸 아메리카노",
-                      "mainCategoryName": "커피/차",
-                      "middleCategoryName": "커피/차",
-                      "thirdCategoryName": "커피/차",
-                      "lastReceivingDate": "YYYY-MM-DD HH:MM:SS",
+                      "mainCategoryCode": "FI_0000000001",
+                      "middleCategoryCode": "SE_0000000001",
+                      "thirdCategoryCode": "TH_0000000001",
+                      "fourthCategoryCode": null,
                       "supplyPrice": 25311,
                       "basePrice": 13111,
-                      "grossProfitMarginRatio": 50.15,
+                      "marginRate": 50,
+                      "isApplied": false
                     },
                     {
+                      "goodsId": 12346,
                       "masterCode": "MK0000002300",
                       "goodsName": "콜드브루 커피",
-                      "mainCategoryName": "커피/차",
-                      "middleCategoryName": "커피/차",
-                      "thirdCategoryName": "커피용품",
-                      "lastReceivingDate": "YYYY-MM-DD HH:MM:SS",
-                      "supplyPrice": 26533,
-                      "basePrice": 17784,
-                      "grossProfitMarginRatio": 50.15,
+                      "mainCategoryCode": "FI_0000000001",
+                      "middleCategoryCode": "SE_0000000001",
+                      "thirdCategoryCode": "TH_0000000001",
+                      "fourthCategoryCode": null,
+                      "supplyPrice": 25311,
+                      "basePrice": 13111,
+                      "marginRate": 50,
+                      "isApplied": false
                     }
                   ],
                   "pageInfo": {
                     "limit": 50,
-                    "totalCount": 6,
+                    "totalCount": 2,
                     "page": 1
                   }}  
       security:
