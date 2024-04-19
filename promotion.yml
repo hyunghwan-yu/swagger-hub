@@ -1385,6 +1385,59 @@ paths:
                   }}  
       security:
         - bearerAuthJWT: []
+  /supervisor/v4/suppliers:
+    get:
+      tags:
+        - partner-promotion-as-supervisor
+      summary: 공급사 조회
+      description: 공급사 조회
+      operationId: partner-promotion-as-supervisor/find-suppliers
+      parameters:
+        - name: supplierCodes
+          in: query
+          description: 공급사코드 리스트
+          required: false
+          schema:
+            type: string
+        - name: supplierName
+          in: query
+          description: 공급사명
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: limit
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: page
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                partner-promotion-as-supervisor/find-suppliers:
+                  value: |-
+                    {
+                      "data" : [ {
+                        "supplierId" : 1,
+                        "supplierCode" : "VD3596",
+                        "supplierName" : "환경설정"
+                      } ],
+                      "pageInfo" : {
+                        "limit" : 1,
+                        "totalCount" : 2,
+                        "page" : 1
+                      }
+                    }
+        
 components:
   securitySchemes:
     bearerAuthJWT:
