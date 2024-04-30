@@ -1555,12 +1555,6 @@ paths:
       tags: 
         - partner-promotion-as-supervisor
       parameters:
-        - name: x-escm0code
-          in: header
-          description: applicationCode
-          required: true
-          schema:
-            type: string
         - name: applicationCode
           in: path
           description: applicationCode
