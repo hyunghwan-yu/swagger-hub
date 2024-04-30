@@ -1319,7 +1319,7 @@ paths:
                   ]}
       security:
         - bearerAuthJWT: []
-  /shared/v4/partner-promotion/application/{applicationCode}/contract/file:
+  /shared/v4/partner-promotion/application/{applicationCode}/agreement/file:
     get:
       summary: 신청서의 합의서 파일 다운로드
       description: 신청서의 합의서 파일 다운로드
@@ -1361,7 +1361,7 @@ paths:
             schema:
               type: object
               properties:
-                contractFile:
+                agreementFile:
                   type: string
                   format: binary
       responses:
@@ -1518,6 +1518,8 @@ paths:
                         "page" : 1
                       }
                     }
+      security:
+        - escmContractToken: []
   /supervisor/v4/product-merchandisers:
     get:
       tags:
@@ -1543,10 +1545,45 @@ paths:
                         "userName" : "이에이엠디",
                         "kurlyManagerType" : "AMD"
                       } ]
-                    }                  
+                    }     
+      security:
+        - escmContractToken: []
+  /supervisor/v4/partner-promotions/application/{applicationCode}/agreement/file:
+    get:
+      summary: 신청서의 합의서 파일 다운로드
+      description: 신청서의 합의서 파일 다운로드
+      tags: 
+        - partner-promotion-as-supervisor
+      parameters:
+        - name: x-escm0code
+          in: header
+          description: applicationCode
+          required: true
+          schema:
+            type: string
+        - name: applicationCode
+          in: path
+          description: applicationCode
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: pdf 파일 다운로드 성공
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+      security:
+        - escmContractToken: []
 components:
   securitySchemes:
     bearerAuthJWT:
       type: http
       scheme: bearer
       bearerFormat: JWT
+    escmContractToken:
+      type: apiKey
+      in: header
+      name: X-ESCM-CONTRACT-TOKEN
