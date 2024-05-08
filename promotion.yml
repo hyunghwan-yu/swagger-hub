@@ -41,45 +41,37 @@ paths:
           content:
             application/json:
               examples:
-                "success": 
-                  value: {"data": {
-                    "promotionApplicationId": 1,
-                    "applicationCode": "DDDDD",
-                    "isTemporary": false,
-                    "status": "READY_TO_AGREE",
-                    "isGeneratedFile": false,
-                    "isConfirmed": false,
-                    "goods": [
-                      {
-                        "promotionGiveawayConditionGoodsId": 1,
-                        "referencePromotionGiveawayConditionGoodsId": null,
-                        "masterCode": "MK00000000",
-                        "goodsName": "케냐 아메리카노",
-                        "basePrice": 1000,
-                        "supplyprice": 100,
-                        "expectedSalesQuantity": 1000,
-                        "status": "PROPOSAL",
-                        "isInprogress": false,
-                        "startDate": "YYYY-MM-DD HH:MM:SS",
-                        "endDate": "YYYY-MM-DD HH:MM:SS",
-                      }
-                    ],
-                    "giveawayGoods": [
-                    {
-                      "promotionGiveawayGoodsId": 1,
-                      "supplyprice": 100,
-                      "maximumQuantity": 100,
-                      "maximumExpectedDiscountPrice": 100,
-                      "discountRate": 10,
-                      "discountPrice": 2300,
-                      "expectedSalesQuantity": 1000,
-                      "conditionType": "PRODUCT",
-                      "thresholdType": "PRICE",
-                      "provisionType": "EACH",
-                      "conditionThreshold": 30000
+                success: 
+                  value: {
+                      "goods": [
+                        {
+                          "promotionGiveawayConditionGoodsId": 1,
+                          "masterCode": "MK00000000",
+                          "goodsName": "케냐 아메리카노",
+                          "basePrice": 1000,
+                          "supplyprice": 100,
+                          "expectedSalesQuantity": 1000,
+                          "status": "PROPOSAL",
+                          "startDate": "YYYY-MM-DD HH:MM:SS",
+                          "endDate": "YYYY-MM-DD HH:MM:SS",
+                        }
+                      ],
+                      "giveawayGoods": [
+                        {
+                          "promotionGiveawayGoodsId": 1,
+                          "supplyprice": 100,
+                          "maximumQuantity": 100,
+                          "maximumExpectedDiscountPrice": 100,
+                          "discountRate": 10,
+                          "discountPrice": 2300,
+                          "expectedSalesQuantity": 1000,
+                          "conditionType": "PRODUCT",
+                          "thresholdType": "PRICE",
+                          "provisionType": "EACH",
+                          "conditionThreshold": 30000
+                        }
+                      ]
                     }
-                  ]
-                  }}
       security:
         - bearerAuthJWT: []
   /shared/v4/partner-promotion/{promotionCode}/application/giveaway/temporary:
@@ -279,63 +271,63 @@ paths:
               examples:
                 "success": 
                   value: {"data": {
-                    "promotionApplicationId": 1,
-                    "applicationCode": "DDDDD",
-                    "isTemporary": false,
-                    "status": "READY_TO_AGREE",
-                    "isGeneratedFile": false,
-                    "isConfirmed": false,
-                    "goods": [
-                      {
-                        "promotionCouponGoodsId": 1,
-                        "referencePromotionCouponGoodsId": null,
-                        "masterCode": "MK00000000",
-                        "goodsName": "케냐 아메리카노",
-                        "maximumDiscountPrice": 5000,
-                        "discountRate": 10,
-                        "discountPrice": 2300,
-                        "expectedSalesQuantity": 1000,
-                        "supplierCostSharingRate": 50,
-                        "expectedAdvertisementCost": 800283,
-                        "basePrice": 23000,
-                        "originalGrossMerchandiseValue": 1000000,
-                        "grossProfitMargin": 22,
-                        "expectedAdvertiseRate": 24,
-                        "advertiseCostPerUnit": 4500,
-                        "maximumQuantity": 1000,
-                        "maximumExpectedDiscountPrice": 10000,
-                        "discountedPrice": 20700,
-                        "status": "IN_PROGRESS",
-                        "isInprogress": false,
-                        "startDate": "YYYY-MM-DD HH:MM:SS",
-                        "endDate": "YYYY-MM-DD HH:MM:SS",
-                      },
-                      {
-                        "promotionCouponGoodsId": 2,
-                        "referencePromotionCouponGoodsId": 45,
-                        "masterCode": "MK00000011",
-                        "goodsName": "텀블러",
-                        "maximumDiscountPrice": 5000,
-                        "discountRate": 10,
-                        "discountPrice": 2300,
-                        "expectedSalesQuantity": 1000,
-                        "supplierCostSharingRate": 50,
-                        "expectedAdvertisementCost": 800283,
-                        "basePrice": 23000,
-                        "originalGrossMerchandiseValue": 1000000,
-                        "grossProfitMargin": 22,
-                        "expectedAdvertiseRate": 24,
-                        "advertiseCostPerUnit": 4500,
-                        "maximumQuantity": 1000,
-                        "maximumExpectedDiscountPrice": 10000,
-                        "discountedPrice": 20700,
-                        "status": "IN_PROGRESS",
-                        "isInprogress": true,
-                        "startDate": "YYYY-MM-DD HH:MM:SS",
-                        "endDate": "YYYY-MM-DD HH:MM:SS",
-                      }
-                    ]
-                  }}
+                        "promotionApplicationId": 1,
+                        "applicationCode": "DDDDD",
+                        "isTemporary": false,
+                        "status": "READY_TO_AGREE",
+                        "isGeneratedFile": false,
+                        "isConfirmed": false,
+                        "goods": [
+                          {
+                            "promotionCouponGoodsId": 1,
+                            "referencePromotionCouponGoodsId": null,
+                            "masterCode": "MK00000000",
+                            "goodsName": "케냐 아메리카노",
+                            "maximumDiscountPrice": 5000,
+                            "discountRate": 10,
+                            "discountPrice": 2300,
+                            "expectedSalesQuantity": 1000,
+                            "supplierCostSharingRate": 50,
+                            "expectedAdvertisementCost": 800283,
+                            "basePrice": 23000,
+                            "originalGrossMerchandiseValue": 1000000,
+                            "grossProfitMargin": 22,
+                            "expectedAdvertiseRate": 24,
+                            "advertiseCostPerUnit": 4500,
+                            "maximumQuantity": 1000,
+                            "maximumExpectedDiscountPrice": 10000,
+                            "discountedPrice": 20700,
+                            "status": "IN_PROGRESS",
+                            "isInprogress": false,
+                            "startDate": "YYYY-MM-DD HH:MM:SS",
+                            "endDate": "YYYY-MM-DD HH:MM:SS",
+                          },
+                          {
+                            "promotionCouponGoodsId": 2,
+                            "referencePromotionCouponGoodsId": 45,
+                            "masterCode": "MK00000011",
+                            "goodsName": "텀블러",
+                            "maximumDiscountPrice": 5000,
+                            "discountRate": 10,
+                            "discountPrice": 2300,
+                            "expectedSalesQuantity": 1000,
+                            "supplierCostSharingRate": 50,
+                            "expectedAdvertisementCost": 800283,
+                            "basePrice": 23000,
+                            "originalGrossMerchandiseValue": 1000000,
+                            "grossProfitMargin": 22,
+                            "expectedAdvertiseRate": 24,
+                            "advertiseCostPerUnit": 4500,
+                            "maximumQuantity": 1000,
+                            "maximumExpectedDiscountPrice": 10000,
+                            "discountedPrice": 20700,
+                            "status": "IN_PROGRESS",
+                            "isInprogress": true,
+                            "startDate": "YYYY-MM-DD HH:MM:SS",
+                            "endDate": "YYYY-MM-DD HH:MM:SS",
+                          }
+                        ]
+                    }}
       security:
         - bearerAuthJWT: []
   /shared/v4/partner-promotion/{promotionCode}/application/coupon/temporary:
@@ -511,61 +503,61 @@ paths:
               examples:
                 "success": 
                   value: {"data": {
-                    "promotionApplicationId": 1,
-                    "applicationCode": "DDDDD",
-                    "isTemporary": false,
-                    "status": "READY_TO_AGREE",
-                    "isGeneratedFile": false,
-                    "isConfirmed": false,
-                    "goods": [
-                      {
-                        "promotionPriceDiscountGoodsId": 1,
-                        "refernecePromotionPriceDiscountGoodsId": null,
-                        "masterCode": "MK00000000",
-                        "goodsName": "케냐 아메리카노",
-                        "discountRate": 10,
-                        "discountPrice": 2300,
-                        "expectedSalesQuantity": 1000,
-                        "supplierCostSharingRate": 50,
-                        "expectedAdvertisementCost": 800283,
-                        "basePrice": 23000,
-                        "originalGrossMerchandiseValue": 1000000,
-                        "grossProfitMargin": 22,
-                        "expectedAdvertiseRate": 24,
-                        "advertiseCostPerUnit": 4500,
-                        "maximumQuantity": 1000,
-                        "maximumExpectedDiscountPrice": 10000,
-                        "discountedPrice": 20700,
-                        "status": "IN_PROGRESS",
-                        "isInprogress": true,
-                        "startDate": "YYYY-MM-DD HH:MM:SS",
-                        "endDate": "YYYY-MM-DD HH:MM:SS",
-                      },
-                      {
-                        "promotionPriceDiscountGoodsId": 2,
-                        "refernecePromotionPriceDiscountGoodsId": 45,
-                        "masterCode": "MK00000000",
-                        "goodsName": "다른커피",
-                        "discountRate": 10,
-                        "discountPrice": 2300,
-                        "expectedSalesQuantity": 1000,
-                        "supplierCostSharingRate": 50,
-                        "expectedAdvertisementCost": 800283,
-                        "basePrice": 23000,
-                        "originalGrossMerchandiseValue": 1000000,
-                        "grossProfitMargin": 22,
-                        "expectedAdvertiseRate": 24,
-                        "advertiseCostPerUnit": 4500,
-                        "maximumQuantity": 1000,
-                        "maximumExpectedDiscountPrice": 10000,
-                        "discountedPrice": 20700,
-                        "status": "PROPOSAL",
-                        "isInprogress": false,
-                        "startDate": "YYYY-MM-DD HH:MM:SS",
-                        "endDate": "YYYY-MM-DD HH:MM:SS",
-                      }
-                    ]
-                  }}
+                      "promotionApplicationId": 1,
+                      "applicationCode": "DDDDD",
+                      "isTemporary": false,
+                      "status": "READY_TO_AGREE",
+                      "isGeneratedFile": false,
+                      "isConfirmed": false,
+                      "goods": [
+                        {
+                          "promotionPriceDiscountGoodsId": 1,
+                          "refernecePromotionPriceDiscountGoodsId": null,
+                          "masterCode": "MK00000000",
+                          "goodsName": "케냐 아메리카노",
+                          "discountRate": 10,
+                          "discountPrice": 2300,
+                          "expectedSalesQuantity": 1000,
+                          "supplierCostSharingRate": 50,
+                          "expectedAdvertisementCost": 800283,
+                          "basePrice": 23000,
+                          "originalGrossMerchandiseValue": 1000000,
+                          "grossProfitMargin": 22,
+                          "expectedAdvertiseRate": 24,
+                          "advertiseCostPerUnit": 4500,
+                          "maximumQuantity": 1000,
+                          "maximumExpectedDiscountPrice": 10000,
+                          "discountedPrice": 20700,
+                          "status": "IN_PROGRESS",
+                          "isInprogress": true,
+                          "startDate": "YYYY-MM-DD HH:MM:SS",
+                          "endDate": "YYYY-MM-DD HH:MM:SS",
+                        },
+                        {
+                          "promotionPriceDiscountGoodsId": 2,
+                          "refernecePromotionPriceDiscountGoodsId": 45,
+                          "masterCode": "MK00000000",
+                          "goodsName": "다른커피",
+                          "discountRate": 10,
+                          "discountPrice": 2300,
+                          "expectedSalesQuantity": 1000,
+                          "supplierCostSharingRate": 50,
+                          "expectedAdvertisementCost": 800283,
+                          "basePrice": 23000,
+                          "originalGrossMerchandiseValue": 1000000,
+                          "grossProfitMargin": 22,
+                          "expectedAdvertiseRate": 24,
+                          "advertiseCostPerUnit": 4500,
+                          "maximumQuantity": 1000,
+                          "maximumExpectedDiscountPrice": 10000,
+                          "discountedPrice": 20700,
+                          "status": "PROPOSAL",
+                          "isInprogress": false,
+                          "startDate": "YYYY-MM-DD HH:MM:SS",
+                          "endDate": "YYYY-MM-DD HH:MM:SS",
+                        }
+                      ]
+                    }}
       security:
         - bearerAuthJWT: []
   /shared/v4/partner-promotion/{promotionCode}/application/price-discount/temporary:
@@ -720,67 +712,67 @@ paths:
               examples:
                 "success": 
                   value: {"data": {
-                    "promotionApplicationId": 1,
-                    "applicationCode": "DDDDD",
-                    "isTemporary": false,
-                    "status": "READY_TO_AGREE",
-                    "isGeneratedFile": false,
-                    "isConfirmed": false,
-                    "goods": [
-                      {
-                        "promotionInventoryPriceDiscountGoodsId": 1,
-                        "referencePromotionInventoryPriceDiscountGoodsId": null,
-                        "masterCode": "MK00000000",
-                        "goodsName": "케냐 아메리카노",
-                        "minimumOrderPrice": 10000,
-                        "minimumOrderQuantity": 1,
-                        "maximumDiscountPrice": 5000,
-                        "discountRate": 10,
-                        "discountPrice": 2300,
-                        "expectedSalesQuantity": 1000,
-                        "supplierCostSharingRate": 50,
-                        "expectedAdvertisementCost": 800283,
-                        "basePrice": 23000,
-                        "originalGrossMerchandiseValue": 1000000,
-                        "grossProfitMargin": 22,
-                        "expectedAdvertiseRate": 24,
-                        "advertiseCostPerUnit": 4500,
-                        "maximumQuantity": 1000,
-                        "maximumExpectedDiscountPrice": 10000,
-                        "discountedPrice": 20700,
-                        "status": "IN_PROGRESS",
-                        "isInprogress": true,
-                        "startDate": "YYYY-MM-DD HH:MM:SS",
-                        "endDate": "YYYY-MM-DD HH:MM:SS",
-                      },
-                      {
-                        "promotionInventoryPriceDiscountGoodsId": null,
-                        "referencePromotionInventoryPriceDiscountGoodsId": 1,
-                        "masterCode": "MK00000011",
-                        "goodsName": "텀블러",
-                        "minimumOrderPrice": 10000,
-                        "minimumOrderQuantity": 1,
-                        "maximumDiscountPrice": 5000,
-                        "discountRate": 10,
-                        "discountPrice": 2300,
-                        "expectedSalesQuantity": 1000,
-                        "supplierCostSharingRate": 50,
-                        "expectedAdvertisementCost": 800283,
-                        "basePrice": 23000,
-                        "originalGrossMerchandiseValue": 1000000,
-                        "grossProfitMargin": 22,
-                        "expectedAdvertiseRate": 24,
-                        "advertiseCostPerUnit": 4500,
-                        "maximumQuantity": 1000,
-                        "maximumExpectedDiscountPrice": 10000,
-                        "discountedPrice": 20700,
-                        "status": "IN_PROGRESS",
-                        "isInprogress": false,
-                        "startDate": "YYYY-MM-DD HH:MM:SS",
-                        "endDate": "YYYY-MM-DD HH:MM:SS",
-                      }
-                    ]
-                  }}
+                      "promotionApplicationId": 1,
+                      "applicationCode": "DDDDD",
+                      "isTemporary": false,
+                      "status": "READY_TO_AGREE",
+                      "isGeneratedFile": false,
+                      "isConfirmed": false,
+                      "goods": [
+                        {
+                          "promotionInventoryPriceDiscountGoodsId": 1,
+                          "referencePromotionInventoryPriceDiscountGoodsId": null,
+                          "masterCode": "MK00000000",
+                          "goodsName": "케냐 아메리카노",
+                          "minimumOrderPrice": 10000,
+                          "minimumOrderQuantity": 1,
+                          "maximumDiscountPrice": 5000,
+                          "discountRate": 10,
+                          "discountPrice": 2300,
+                          "expectedSalesQuantity": 1000,
+                          "supplierCostSharingRate": 50,
+                          "expectedAdvertisementCost": 800283,
+                          "basePrice": 23000,
+                          "originalGrossMerchandiseValue": 1000000,
+                          "grossProfitMargin": 22,
+                          "expectedAdvertiseRate": 24,
+                          "advertiseCostPerUnit": 4500,
+                          "maximumQuantity": 1000,
+                          "maximumExpectedDiscountPrice": 10000,
+                          "discountedPrice": 20700,
+                          "status": "IN_PROGRESS",
+                          "isInprogress": true,
+                          "startDate": "YYYY-MM-DD HH:MM:SS",
+                          "endDate": "YYYY-MM-DD HH:MM:SS",
+                        },
+                        {
+                          "promotionInventoryPriceDiscountGoodsId": null,
+                          "referencePromotionInventoryPriceDiscountGoodsId": 1,
+                          "masterCode": "MK00000011",
+                          "goodsName": "텀블러",
+                          "minimumOrderPrice": 10000,
+                          "minimumOrderQuantity": 1,
+                          "maximumDiscountPrice": 5000,
+                          "discountRate": 10,
+                          "discountPrice": 2300,
+                          "expectedSalesQuantity": 1000,
+                          "supplierCostSharingRate": 50,
+                          "expectedAdvertisementCost": 800283,
+                          "basePrice": 23000,
+                          "originalGrossMerchandiseValue": 1000000,
+                          "grossProfitMargin": 22,
+                          "expectedAdvertiseRate": 24,
+                          "advertiseCostPerUnit": 4500,
+                          "maximumQuantity": 1000,
+                          "maximumExpectedDiscountPrice": 10000,
+                          "discountedPrice": 20700,
+                          "status": "IN_PROGRESS",
+                          "isInprogress": false,
+                          "startDate": "YYYY-MM-DD HH:MM:SS",
+                          "endDate": "YYYY-MM-DD HH:MM:SS",
+                        }
+                      ]
+                    }}
       security:
         - bearerAuthJWT: []
   /shared/v4/partner-promotion/{promotionCode}/application/inventory-price-discount/temporary:
@@ -1035,39 +1027,39 @@ paths:
               examples:
                 "success": 
                   value: {"data": [
-                    {
-                      "partnerPromotionId": 1,
-                      "promotionCode": "ffffff",
-                      "eventType": "SPECIAL_SALE",
-                      "title": "뷰티컬리페스타-스킨케어",
-                      "categories": [
-                        "커피/차/음료",
-                        "메인메뉴/간편식"
-                      ],
-                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
-                      "startDate": "YYYY-MM-DD HH:MM:SS",
-                      "endDate": "YYYY-MM-DD HH:MM:SS",
-                      "myApplicationCodes" : ["MMMM", "AAAA"]
-                    },
-                    {
-                      "partnerPromotionId": 2,
-                      "promotionCode": "ffffff",
-                      "eventType": "SPECIAL_SALE",
-                      "promotionName": "2222namememe 전체 카테고리",
-                      "categories": [
-                        
-                      ],
-                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
-                      "startDate": "YYYY-MM-DD HH:MM:SS",
-                      "endDate": "YYYY-MM-DD HH:MM:SS",
-                      "myApplicationCodes" : []
-                    }
-                  ],
-                  "pageInfo": {
-                    "limit": 50,
-                    "totalCount": 6,
-                    "page": 1
-                  }}
+                      {
+                        "partnerPromotionId": 1,
+                        "promotionCode": "ffffff",
+                        "eventType": "SPECIAL_SALE",
+                        "title": "뷰티컬리페스타-스킨케어",
+                        "categories": [
+                          "커피/차/음료",
+                          "메인메뉴/간편식"
+                        ],
+                        "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                        "myApplicationCodes" : ["MMMM", "AAAA"]
+                      },
+                      {
+                        "partnerPromotionId": 2,
+                        "promotionCode": "ffffff",
+                        "eventType": "SPECIAL_SALE",
+                        "promotionName": "2222namememe 전체 카테고리",
+                        "categories": [
+                          
+                        ],
+                        "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                        "myApplicationCodes" : []
+                      }
+                    ],
+                    "pageInfo": {
+                      "limit": 50,
+                      "totalCount": 6,
+                      "page": 1
+                    }}
       security:
         - bearerAuthJWT: []
   /shared/v4/partner-promotions/applications/my-applied:
@@ -1187,38 +1179,38 @@ paths:
               examples:
                 "success": 
                   value: {"data": [
-                    {
-                      "promotionApplicationId": 1,
-                      "applicationStatus": "PROPOSAL_COMPLETED",
-                      "applicationCode": "XXXX",
-                      "promotionCode": "PPPPP",
-                      "title": "9월카페기획전",
-                      "eventType": "SPECIAL_SALE",
-                      "benefitType": "COUPON",
-                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
-                      "startDate": "YYYY-MM-DD HH:MM:SS",
-                      "endDate": "YYYY-MM-DD HH:MM:SS",
-                      "appliedDate": "YYYY-MM-DD HH:MM:SS"
-                    },
-                    {
-                      "promotionApplicationId": 2,
-                      "applicationStatus": "AGREED",
-                      "applicationCode": "VJIBITNBT",
-                      "promotionCode": "3333OOOOOOOOOOO",
-                      "title": "9월카페기획전",
-                      "eventType": "SPECIAL_SALE",
-                      "benefitType": "INVENTORY_PRICE_DISCOUNT",
-                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
-                      "startDate": "YYYY-MM-DD HH:MM:SS",
-                      "endDate": "YYYY-MM-DD HH:MM:SS",
-                      "appliedDate": "YYYY-MM-DD HH:MM:SS"
-                    }
-                  ],
-                  "pageInfo": {
-                    "limit": 50,
-                    "totalCount": 6,
-                    "page": 1
-                  }}
+                      {
+                        "promotionApplicationId": 1,
+                        "applicationStatus": "PROPOSAL_COMPLETED",
+                        "applicationCode": "XXXX",
+                        "promotionCode": "PPPPP",
+                        "title": "9월카페기획전",
+                        "eventType": "SPECIAL_SALE",
+                        "benefitType": "COUPON",
+                        "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                        "appliedDate": "YYYY-MM-DD HH:MM:SS"
+                      },
+                      {
+                        "promotionApplicationId": 2,
+                        "applicationStatus": "AGREED",
+                        "applicationCode": "VJIBITNBT",
+                        "promotionCode": "3333OOOOOOOOOOO",
+                        "title": "9월카페기획전",
+                        "eventType": "SPECIAL_SALE",
+                        "benefitType": "INVENTORY_PRICE_DISCOUNT",
+                        "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                        "startDate": "YYYY-MM-DD HH:MM:SS",
+                        "endDate": "YYYY-MM-DD HH:MM:SS",
+                        "appliedDate": "YYYY-MM-DD HH:MM:SS"
+                      }
+                    ],
+                    "pageInfo": {
+                      "limit": 50,
+                      "totalCount": 6,
+                      "page": 1
+                    }}
       security:
         - bearerAuthJWT: []
   /shared/v4/partner-promotion/{promotionCode}:
@@ -1242,36 +1234,36 @@ paths:
               examples:
                 "success": 
                   value: {"data": {
-                    "promotionCode": "ffffff",
-                    "eventType": "SPECIAL_SALE",
-                    "title": "뷰티컬리페스타-스킨케어",
-                    "description": "",
-                    "categories": [
-                      "커피/차/음료",
-                      "메인메뉴/간편식"
-                    ],
-                    "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
-                    "startDate": "YYYY-MM-DD HH:MM:SS",
-                    "endDate": "YYYY-MM-DD HH:MM:SS",
-                    "benefitTypes": ["INVENTORY_PRICE_DISCOUNT", "PRICE_DISCOUNT", "COUPON", "GIVEAWAY"],
-                    "myApplications" : [
-                      {
-                        "benefitType": "PRICE_DISCOUNT",
-                        "applicationCode": "CCCC",
-                        "count": 12,
-                      },
-                      {
-                        "benefitType": "GIVEAWAY",
-                        "applicationCode": "AAAA",
-                        "count": 21,
-                      },
-                      {
-                        "benefitType": "INVENTORY_PRICE_DISCOUNT",
-                        "applicationCode": "BBBBB",
-                        "count": 54,
-                      }
-                    ]
-                  }}    
+                      "promotionCode": "ffffff",
+                      "eventType": "SPECIAL_SALE",
+                      "title": "뷰티컬리페스타-스킨케어",
+                      "description": "",
+                      "categories": [
+                        "커피/차/음료",
+                        "메인메뉴/간편식"
+                      ],
+                      "applicationEndDate": "YYYY-MM-DD HH:MM:SS",
+                      "startDate": "YYYY-MM-DD HH:MM:SS",
+                      "endDate": "YYYY-MM-DD HH:MM:SS",
+                      "benefitTypes": ["INVENTORY_PRICE_DISCOUNT", "PRICE_DISCOUNT", "COUPON", "GIVEAWAY"],
+                      "myApplications" : [
+                        {
+                          "benefitType": "PRICE_DISCOUNT",
+                          "applicationCode": "CCCC",
+                          "count": 12,
+                        },
+                        {
+                          "benefitType": "GIVEAWAY",
+                          "applicationCode": "AAAA",
+                          "count": 21,
+                        },
+                        {
+                          "benefitType": "INVENTORY_PRICE_DISCOUNT",
+                          "applicationCode": "BBBBB",
+                          "count": 54,
+                        }
+                      ]
+                    }}    
       security:
         - bearerAuthJWT: []
   /shared/v4/partner-promotion/application/{applicationCode}/agree:
@@ -1307,16 +1299,16 @@ paths:
               examples:
                 "승인되지 않은 잔여 아이템": 
                   value: {"error": "NOT_APPROVED_ITEM",
-                  "data": [
-                    {
-                      "{{benefit-type}}-item-id": 12,
-                      "masterCode": "MK0000000"
-                    },
-                    {
-                      "{{benefit-type}}-item-id": 91,
-                      "masterCode": "MK0000012"
-                    }
-                  ]}
+                    "data": [
+                      {
+                        "{{benefit-type}}-item-id": 12,
+                        "masterCode": "MK0000000"
+                      },
+                      {
+                        "{{benefit-type}}-item-id": 91,
+                        "masterCode": "MK0000012"
+                      }
+                    ]}
       security:
         - bearerAuthJWT: []
   /shared/v4/partner-promotion/application/{applicationCode}/agreement/file:
@@ -1432,38 +1424,38 @@ paths:
               examples:
                 "success": 
                   value: {"data": [
-                    {
-                      "goodsId": 12345,
-                      "masterCode": "MK0000000000",
-                      "goodsName": "케탸 아메리카노",
-                      "mainCategoryCode": "FI_0000000001",
-                      "middleCategoryCode": "SE_0000000001",
-                      "thirdCategoryCode": "TH_0000000001",
-                      "fourthCategoryCode": null,
-                      "supplyPrice": 25311,
-                      "basePrice": 13111,
-                      "marginRate": 50,
-                      "isApplied": false
-                    },
-                    {
-                      "goodsId": 12346,
-                      "masterCode": "MK0000002300",
-                      "goodsName": "콜드브루 커피",
-                      "mainCategoryCode": "FI_0000000001",
-                      "middleCategoryCode": "SE_0000000001",
-                      "thirdCategoryCode": "TH_0000000001",
-                      "fourthCategoryCode": null,
-                      "supplyPrice": 25311,
-                      "basePrice": 13111,
-                      "marginRate": 50,
-                      "isApplied": false
-                    }
-                  ],
-                  "pageInfo": {
-                    "limit": 50,
-                    "totalCount": 2,
-                    "page": 1
-                  }}  
+                      {
+                        "goodsId": 12345,
+                        "masterCode": "MK0000000000",
+                        "goodsName": "케탸 아메리카노",
+                        "mainCategoryCode": "FI_0000000001",
+                        "middleCategoryCode": "SE_0000000001",
+                        "thirdCategoryCode": "TH_0000000001",
+                        "fourthCategoryCode": null,
+                        "supplyPrice": 25311,
+                        "basePrice": 13111,
+                        "marginRate": 50,
+                        "isApplied": false
+                      },
+                      {
+                        "goodsId": 12346,
+                        "masterCode": "MK0000002300",
+                        "goodsName": "콜드브루 커피",
+                        "mainCategoryCode": "FI_0000000001",
+                        "middleCategoryCode": "SE_0000000001",
+                        "thirdCategoryCode": "TH_0000000001",
+                        "fourthCategoryCode": null,
+                        "supplyPrice": 25311,
+                        "basePrice": 13111,
+                        "marginRate": 50,
+                        "isApplied": false
+                      }
+                    ],
+                    "pageInfo": {
+                      "limit": 50,
+                      "totalCount": 2,
+                      "page": 1
+                    }}  
       security:
         - bearerAuthJWT: []
   /supervisor/v4/suppliers:
