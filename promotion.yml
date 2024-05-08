@@ -51,9 +51,25 @@ paths:
                           "basePrice": 1000,
                           "supplyprice": 100,
                           "expectedSalesQuantity": 1000,
-                          "status": "PROPOSAL",
+                          "reviewStatus": "PROPOSAL",
+                          "progressStatus": "IN_PROGRESS",
                           "startDate": "YYYY-MM-DD HH:MM:SS",
                           "endDate": "YYYY-MM-DD HH:MM:SS",
+                          "giveawayGoods": [
+                            {
+                              "promotionGiveawayGoodsId": 1,
+                              "supplyprice": 100,
+                              "maximumQuantity": 100,
+                              "maximumExpectedDiscountPrice": 100,
+                              "discountRate": 10,
+                              "discountPrice": 2300,
+                              "expectedSalesQuantity": 1000,
+                              "conditionType": "PRODUCT",
+                              "thresholdType": "PRICE",
+                              "provisionType": "EACH",
+                              "conditionThreshold": 30000
+                            }
+                          ]
                         }
                       ],
                       "giveawayGoods": [
@@ -214,8 +230,7 @@ paths:
                         "goodsName": "케냐 아메리카노",
                         "basePrice": 1000,
                         "supplyprice": 100,
-                        "expectedSalesQuantity": 1000,
-                        "status": "PROPOSAL",
+                        "expectedSalesQuantity": 1000
                       },
                       {
                         "promotionGiveawayConditionGoodsId": null,
@@ -224,8 +239,7 @@ paths:
                         "goodsName": "케냐 아메리카노",
                         "basePrice": 1000,
                         "supplyprice": 100,
-                        "expectedSalesQuantity": 1000,
-                        "status": "PROPOSAL",
+                        "expectedSalesQuantity": 1000
                       },
                       {
                         "promotionGiveawayConditionGoodsId": null,
@@ -234,8 +248,7 @@ paths:
                         "goodsName": "케냐 아메리카노",
                         "basePrice": 1000,
                         "supplyprice": 100,
-                        "expectedSalesQuantity": 1000,
-                        "status": "PROPOSAL",
+                        "expectedSalesQuantity": 1000
                       }
                     ],
                     "giveawayGoods": [
@@ -299,8 +312,8 @@ paths:
                             "maximumQuantity": 1000,
                             "maximumExpectedDiscountPrice": 10000,
                             "discountedPrice": 20700,
-                            "status": "IN_PROGRESS",
-                            "isInprogress": false,
+                            "reviewStatus": "IN_PROGRESS",
+                            "progressStatus": "READY",
                             "startDate": "YYYY-MM-DD HH:MM:SS",
                             "endDate": "YYYY-MM-DD HH:MM:SS",
                           },
@@ -323,8 +336,8 @@ paths:
                             "maximumQuantity": 1000,
                             "maximumExpectedDiscountPrice": 10000,
                             "discountedPrice": 20700,
-                            "status": "IN_PROGRESS",
-                            "isInprogress": true,
+                            "reviewStatus": "IN_PROGRESS",
+                            "progressStatus": "IN_PROGRESS",
                             "startDate": "YYYY-MM-DD HH:MM:SS",
                             "endDate": "YYYY-MM-DD HH:MM:SS",
                           }
@@ -532,8 +545,8 @@ paths:
                           "maximumQuantity": 1000,
                           "maximumExpectedDiscountPrice": 10000,
                           "discountedPrice": 20700,
-                          "status": "IN_PROGRESS",
-                          "isInprogress": true,
+                          "reviewStatus": "IN_PROGRESS",
+                          "progressStatus": "CLOSE",
                           "startDate": "YYYY-MM-DD HH:MM:SS",
                           "endDate": "YYYY-MM-DD HH:MM:SS",
                         },
@@ -556,7 +569,7 @@ paths:
                           "maximumExpectedDiscountPrice": 10000,
                           "discountedPrice": 20700,
                           "status": "PROPOSAL",
-                          "isInprogress": false,
+                          "progressStatus": "READY",
                           "startDate": "YYYY-MM-DD HH:MM:SS",
                           "endDate": "YYYY-MM-DD HH:MM:SS",
                         }
@@ -746,8 +759,8 @@ paths:
                           "maximumQuantity": 1000,
                           "maximumExpectedDiscountPrice": 10000,
                           "discountedPrice": 20700,
-                          "status": "IN_PROGRESS",
-                          "isInprogress": true,
+                          "reviewStatus": "IN_PROGRESS",
+                          "progressStatus": "READY",
                           "startDate": "YYYY-MM-DD HH:MM:SS",
                           "endDate": "YYYY-MM-DD HH:MM:SS",
                         },
@@ -772,8 +785,8 @@ paths:
                           "maximumQuantity": 1000,
                           "maximumExpectedDiscountPrice": 10000,
                           "discountedPrice": 20700,
-                          "status": "IN_PROGRESS",
-                          "isInprogress": false,
+                          "reviewStatus": "IN_PROGRESS",
+                          "progressStatus": "IN_PROGRESS",
                           "startDate": "YYYY-MM-DD HH:MM:SS",
                           "endDate": "YYYY-MM-DD HH:MM:SS",
                         }
