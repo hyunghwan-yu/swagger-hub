@@ -199,8 +199,10 @@ paths:
       requestBody:
         description: "<ul><li>promotionGiveawayConditionGoodsId가 없으면 생성 / promotionGiveawayConditionGoodsId가 있으면 수정</li><li>referencePromotionGiveawayConditionGoodsId:분리된 goodsId</li></ul>"
         content:
-          application/json;charset=UTF-8:
-            examples:
+          application/json:
+            schema:
+              title: groups
+            examples: 
               success:
                 value: 
                   {
@@ -443,8 +445,10 @@ paths:
       requestBody:
         description: "<ul><li>id가 없으면 생성 / id가 있으면 수정</li><li>referencePromotionCouponGoodsId:분리된 goodsId</li></ul>"
         content:
-          application/json;charset=UTF-8:
-            examples:
+          application/json:
+            schema:
+              title: groups
+            examples: 
               success:
                 value: [
                   {
@@ -659,40 +663,42 @@ paths:
       tags: 
         - partner-promotion-application-price-discount
       requestBody:
-        description: "<ul><li>id가 없으면 생성 / id가 있으면 수정</li><li>referencePromotionPriceDiscountGoodsId:분리된 goodsId</li></ul>"
-        content:
-          application/json;charset=UTF-8:
-            examples:
-              success:
-                value: [
-                  {
-                    "promotionPriceDiscountGoodsId": null,
-                    "referencePromotionPriceDiscountGoodsId": null,
-                    "masterCode": "MK00000000",
-                    "discoutPrice": 1234,
-                    "discountRate": 10,
-                    "supplierCostSharingRate": 50,
-                    "maximumQuantity": 1000
-                  },
-                  {
-                    "promotionPriceDiscountGoodsId": 45,
-                    "referencePromotionPriceDiscountGoodsId": null,
-                    "masterCode": "MK00000011",
-                    "discoutPrice": 42423,
-                    "discountRate": 15,
-                    "supplierCostSharingRate": 23,
-                    "maximumQuantity": 323541
-                  },
-                  {
-                    "promotionPriceDiscountGoodsId": null,
-                    "referencePromotionPriceDiscountGoodsId": 45,
-                    "masterCode": "MK00000011",
-                    "discoutPrice": 42423,
-                    "discountRate": 15,
-                    "supplierCostSharingRate": 23,
-                    "maximumQuantity": 323541
-                  }
-                ]
+          description: "<ul><li>id가 없으면 생성 / id가 있으면 수정</li><li>referencePromotionPriceDiscountGoodsId:분리된 goodsId</li></ul>"
+          content:
+            application/json:
+              schema:
+                title: groups
+              examples:
+                success:
+                  value: [
+                    {
+                      "promotionPriceDiscountGoodsId": null,
+                      "referencePromotionPriceDiscountGoodsId": null,
+                      "masterCode": "MK00000000",
+                      "discoutPrice": 1234,
+                      "discountRate": 10,
+                      "supplierCostSharingRate": 50,
+                      "maximumQuantity": 1000
+                    },
+                    {
+                      "promotionPriceDiscountGoodsId": 45,
+                      "referencePromotionPriceDiscountGoodsId": null,
+                      "masterCode": "MK00000011",
+                      "discoutPrice": 42423,
+                      "discountRate": 15,
+                      "supplierCostSharingRate": 23,
+                      "maximumQuantity": 323541
+                    },
+                    {
+                      "promotionPriceDiscountGoodsId": null,
+                      "referencePromotionPriceDiscountGoodsId": 45,
+                      "masterCode": "MK00000011",
+                      "discoutPrice": 42423,
+                      "discountRate": 15,
+                      "supplierCostSharingRate": 23,
+                      "maximumQuantity": 323541
+                    }
+                  ]
       responses:
         '200':
           description: 임시 저장 성공
@@ -888,8 +894,10 @@ paths:
       requestBody:
         description: "<ul><li>id가 없으면 생성 / id가 있으면 수정</li><li>referencePromotionInventoryPriceDiscountGoodsId:분리된 goodsId</li></ul>"
         content:
-          application/json;charset=UTF-8:
-            examples:
+          application/json:
+            schema:
+              title: groups
+            examples: 
               success:
                 value: [
                   {
