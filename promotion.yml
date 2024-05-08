@@ -227,28 +227,22 @@ paths:
                         "promotionGiveawayConditionGoodsId": 45,
                         "referencePromotionGiveawayConditionGoodsId": null,
                         "masterCode": "MK00000000",
-                        "goodsName": "케냐 아메리카노",
-                        "basePrice": 1000,
-                        "supplyprice": 100,
-                        "expectedSalesQuantity": 1000
+                        "basePrice": 11111,
+                        "supplyPrice": 123
                       },
                       {
                         "promotionGiveawayConditionGoodsId": null,
                         "referencePromotionGiveawayConditionGoodsId": null,
                         "masterCode": "MK00000000",
-                        "goodsName": "케냐 아메리카노",
-                        "basePrice": 1000,
-                        "supplyprice": 100,
-                        "expectedSalesQuantity": 1000
+                        "basePrice": 11111,
+                        "supplyPrice": 123
                       },
                       {
                         "promotionGiveawayConditionGoodsId": null,
                         "referencePromotionGiveawayConditionGoodsId": 45,
                         "masterCode": "MK00000000",
-                        "goodsName": "케냐 아메리카노",
-                        "basePrice": 1000,
-                        "supplyprice": 100,
-                        "expectedSalesQuantity": 1000
+                        "basePrice": 11111,
+                        "supplyPrice": 123
                       }
                     ],
                     "giveawayGoods": [
@@ -257,9 +251,6 @@ paths:
                         "supplyprice": 100,
                         "maximumQuantity": 100,
                         "maximumExpectedDiscountPrice": 100,
-                        "discountRate": 10,
-                        "discountPrice": 2300,
-                        "expectedSalesQuantity": 1000,
                         "conditionType": "PRODUCT",
                         "thresholdType": "PRICE",
                         "provisionType": "EACH",
@@ -468,37 +459,49 @@ paths:
                     "promotionCouponGoodsId": null,
                     "referencePromotionCouponGoodsId": null,
                     "masterCode": "MK00000000",
-                    "minimumOrderPrice": 10000,
-                    "minimumOrderQuantity": 1,
-                    "maximumDiscountPrice": 5000,
+                    "basePrice": 123,
+                    "supplyPrice": 567,
                     "discoutPrice": 1234,
                     "discountRate": 10,
                     "supplierCostSharingRate": 50,
-                    "maximumQuantity": 1000
+                    "maximumQuantity": 1000,
+                    "discountSalesPrice": 123,
+                    "maximumExpectedDiscountPrice": 10000,
+                    "minimumOrderPrice": 10000,
+                    "minimumOrderQuantity": 1,
+                    "maximumDiscountPrice": 5000
                   },
                   {
                     "promotionCouponGoodsId": 45,
                     "referencePromotionCouponGoodsId": null,
                     "masterCode": "MK00000011",
-                    "minimumOrderPrice": 10000,
-                    "minimumOrderQuantity": 1,
-                    "maximumDiscountPrice": 5000,
+                    "basePrice": 123,
+                    "supplyPrice": 567,
                     "discoutPrice": 42423,
                     "discountRate": 15,
                     "supplierCostSharingRate": 23,
-                    "maximumQuantity": 323541
+                    "maximumQuantity": 323541,
+                    "discountSalesPrice": 123,
+                    "maximumExpectedDiscountPrice": 10000,
+                    "minimumOrderPrice": 10000,
+                    "minimumOrderQuantity": 1,
+                    "maximumDiscountPrice": 5000
                   },
                   {
                     "promotionCouponGoodsId": null,
                     "referencePromotionCouponGoodsId": 45,
                     "masterCode": "MK00000011",
-                    "minimumOrderPrice": 10000,
-                    "minimumOrderQuantity": 1,
-                    "maximumDiscountPrice": 5000,
+                    "basePrice": 123,
+                    "supplyPrice": 567,
                     "discoutPrice": 42423,
                     "discountRate": 15,
                     "supplierCostSharingRate": 23,
-                    "maximumQuantity": 323541
+                    "maximumQuantity": 323541,
+                    "discountSalesPrice": 123,
+                    "maximumExpectedDiscountPrice": 10000,
+                    "minimumOrderPrice": 10000,
+                    "minimumOrderQuantity": 1,
+                    "maximumDiscountPrice": 5000
                   },
                 ]
       responses:
@@ -688,28 +691,40 @@ paths:
                       "promotionPriceDiscountGoodsId": null,
                       "referencePromotionPriceDiscountGoodsId": null,
                       "masterCode": "MK00000000",
+                      "basePrice": 123,
+                      "supplyPrice": 567,
                       "discoutPrice": 1234,
                       "discountRate": 10,
                       "supplierCostSharingRate": 50,
-                      "maximumQuantity": 1000
+                      "maximumQuantity": 1000,
+                      "discountSalesPrice": 123,
+                      "maximumExpectedDiscountPrice": 10000
                     },
                     {
                       "promotionPriceDiscountGoodsId": 45,
                       "referencePromotionPriceDiscountGoodsId": null,
                       "masterCode": "MK00000011",
+                      "basePrice": 123,
+                      "supplyPrice": 567,
                       "discoutPrice": 42423,
                       "discountRate": 15,
                       "supplierCostSharingRate": 23,
-                      "maximumQuantity": 323541
+                      "maximumQuantity": 323541,
+                      "discountSalesPrice": 123,
+                      "maximumExpectedDiscountPrice": 10000
                     },
                     {
                       "promotionPriceDiscountGoodsId": null,
                       "referencePromotionPriceDiscountGoodsId": 45,
                       "masterCode": "MK00000011",
+                      "basePrice": 123,
+                      "supplyPrice": 567,
                       "discoutPrice": 42423,
                       "discountRate": 15,
                       "supplierCostSharingRate": 23,
-                      "maximumQuantity": 323541
+                      "maximumQuantity": 323541,
+                      "discountSalesPrice": 123,
+                      "maximumExpectedDiscountPrice": 10000
                     }
                   ]
       responses:
@@ -917,37 +932,43 @@ paths:
                     "promotionInventoryPriceDiscountGoodsId": null,
                     "referencePromotionInventoryPriceDiscountGoodsId": null,
                     "masterCode": "MK00000000",
-                    "minimumOrderPrice": 10000,
-                    "minimumOrderQuantity": 1,
-                    "maximumDiscountPrice": 5000,
+                    "basePrice": 12330,
                     "discoutPrice": 1234,
                     "discountRate": 10,
+                    "supplyPrice": 2050,
+                    "discountSupployPrice": 100,
+                    "discountSupplyPriceRate": 12,
                     "supplierCostSharingRate": 50,
-                    "maximumQuantity": 1000
+                    "maximumQuantity": 1000,
+                    "maximumExpectedDiscountPrice": 10000,
                   },
                   {
                     "promotionInventoryPriceDiscountGoodsId": 45,
                     "referencePromotionInventoryPriceDiscountGoodsId": null,
                     "masterCode": "MK00000011",
-                    "minimumOrderPrice": 10000,
-                    "minimumOrderQuantity": 1,
-                    "maximumDiscountPrice": 5000,
+                    "basePrice": 12330,
                     "discoutPrice": 42423,
                     "discountRate": 15,
+                    "supplyPrice": 2050,
+                    "discountSupployPrice": 100,
+                    "discountSupplyPriceRate": 12,
                     "supplierCostSharingRate": 23,
-                    "maximumQuantity": 323541
+                    "maximumQuantity": 323541,
+                    "maximumExpectedDiscountPrice": 10000,
                   },
                   {
                     "promotionInventoryPriceDiscountGoodsId": null,
                     "referencePromotionInventoryPriceDiscountGoodsId": 45,
                     "masterCode": "MK00000011",
-                    "minimumOrderPrice": 10000,
-                    "minimumOrderQuantity": 1,
-                    "maximumDiscountPrice": 5000,
+                    "basePrice": 12330,
                     "discoutPrice": 42423,
                     "discountRate": 15,
+                    "supplyPrice": 2050,
+                    "discountSupployPrice": 100,
+                    "discountSupplyPriceRate": 12,
                     "supplierCostSharingRate": 23,
-                    "maximumQuantity": 323541
+                    "maximumQuantity": 323541,
+                    "maximumExpectedDiscountPrice": 10000,
                   }
                 ]
       responses:
