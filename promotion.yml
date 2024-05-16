@@ -1049,6 +1049,12 @@ paths:
           required: false
           schema:
             type: boolean
+        - name: sort
+          in: query
+          description: 정렬
+          required: true
+          schema:
+            type: string    
         - name: limit
           in: query
           description: limit
